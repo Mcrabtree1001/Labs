@@ -36,6 +36,31 @@ class Fighter: Spaceship {
         }
     }
 }
+class ShieldedShip: Fighter {
+    var shieldStrength = 25
+
+    // Step 2: Override the wasHit() method
+    override func wasHit() {
+        if shieldStrength > 0 {
+            shieldStrength -= 5
+        } else {
+            super.wasHit()
+        }
+    }
+}
+
+// Step 3: Test with an instance of ShieldedShip
+let defender = ShieldedShip()
+defender.name = "Defender"
+
+print("Initial shield: \(defender.shieldStrength)")
+print("Initial health: \(defender.health)")
+
+// Hit the ship 6 times
+for _ in 1...6 {
+    defender.wasHit()
+    print("Shield: \(defender.shieldStrength), Health: \(defender.health)")
+}
 //:  Define a new class `ShieldedShip` that inherits from `Fighter`. Add a variable property `shieldStrength` that defaults to 25. Create a new instance of `ShieldedShip` called `defender`. Set `name` to "Defender" and `weapon` to "Cannon." Call `moveRight()` and print `position`, then call `fire()` and print `remainingFirePower`.
 
 
