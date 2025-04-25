@@ -35,6 +35,45 @@ class Spaceship {
 //:  Add a method to `fighter` called `fire()`. This should check to see if `remainingFirePower` is greater than 0, and if so, should decrement `remainingFirePower` by one. If `remainingFirePower` is not greater than 0, print "You have no more fire power." Call `fire()` on `destroyer` a few times and print `remainingFirePower` after each method call.
 
 
-/*:
+/*:// Step 1: Define the Fighter subclass
+class Fighter: Spaceship {
+    var weapon: String = ""
+    var remainingFirePower: Int = 5
+
+    func fire() {
+        if remainingFirePower > 0 {
+            remainingFirePower -= 1
+        } else {
+            print("You have no more fire power.")
+        }
+    }
+}
+
+// Step 2: Create instance `destroyer` and modify properties
+let destroyer = Fighter()
+destroyer.name = "Destroyer"
+destroyer.weapon = "Laser"
+destroyer.remainingFirePower = 10
+
+// Print initial position
+print("Destroyer's initial position: \(destroyer.position)")
+
+// Move and print new position
+destroyer.moveRight()
+print("Destroyer's new position: \(destroyer.position)")
+
+// Step 3: Try to access `weapon` on `falcon`
+// print(falcon.weapon) // ❌ This won't work because `falcon` is a Spaceship, not a Fighter
+print("You can't access `weapon` on `falcon` because it's not a Fighter instance, it's a base class Spaceship.")
+
+// Step 4: Call `fire()` and print remaining firepower
+destroyer.fire()
+print("Remaining firepower: \(destroyer.remainingFirePower)")
+
+destroyer.fire()
+print("Remaining firepower: \(destroyer.remainingFirePower)")
+
+destroyer.fire()
+print("Remaining firepower: \(destroyer.remainingFirePower)")
 [Previous](@previous)  |  page 2 of 4  |  [Next: Exercise - Override Methods and Properties](@next)
  */
