@@ -16,6 +16,48 @@
 //:  The last thing `Spaceship` needs for this example is a method to handle what happens if the ship gets hit. Go back and add a method `wasHit()` to `Spaceship` that will decrement the ship's health by 5, then if `health` is less than or equal to 0 will print "Sorry, your ship was hit one too many times. Do you want to play again?" Once this method exists, call it on `falcon` and print out the value of `health`.
 
 
-/*:
+/*:// Step 1: Define the Spaceship class
+class Spaceship {
+    var name: String = ""
+    var health: Int = 0
+    var position: Int = 0
+    
+    func moveLeft() {
+        position -= 1
+    }
+    
+    func moveRight() {
+        position += 1
+    }
+    
+    func wasHit() {
+        health -= 5
+        if health <= 0 {
+            print("Sorry, your ship was hit one too many times. Do you want to play again?")
+        }
+    }
+}
+
+// Step 2: Create an instance called falcon
+let falcon = Spaceship()
+falcon.name = "Falcon"
+
+// Step 3: Move the falcon and print position after each move
+falcon.moveLeft()
+print("Falcon's position: \(falcon.position)")
+
+falcon.moveLeft()
+print("Falcon's position: \(falcon.position)")
+
+falcon.moveRight()
+print("Falcon's position: \(falcon.position)")
+
+// Step 4: Set health and test wasHit method
+falcon.health = 10
+falcon.wasHit()
+print("Falcon's health: \(falcon.health)")
+
+falcon.wasHit()
+print("Falcon's health: \(falcon.health)")
 page 1 of 4  |  [Next: Exercise - Create a Subclass](@next)
  */
